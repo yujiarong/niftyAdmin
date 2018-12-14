@@ -1,0 +1,226 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="doc/style.css" rel="stylesheet">
+    </head>
+
+    <body class="preload">
+        <div class="container">
+            <h1 class="h1">Toggle Switch</h1>
+            <h2 class="small" style="margin: 0 0 30px;">designed by <a href="https://www.behance.net/clementmenant" title="Clément Menant Behance">Clément Menant</a> and <a href="https://twitter.com/earvinpepper" title="Loïc Goyet Twitter page">Loïc Goyet</a> for <a href="http://appventus.com/" title="Agence web et mobile à Nantes">AppVentus</a></h2>
+
+            <p style="margin-bottom: 30px;">This is some css that allow you to style (in CSS3 and HTML5) the <code><span class="open-tag tag">input <span class="attr">type=</span><span class="value">checkbox</span></span></code> elements as a toggle switch</p>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <h2 class="h4">Dependencies Required</h2>
+                            <span class="label label-default">no dependencies required</span>
+                        </div>
+
+                        <div class="col-xs-6 border-left">
+                            <h2 class="h4">Available for</h2>
+                            <span class="label label-danger">CSS</span>
+                            <span class="label label-danger">LESS</span>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <h2 class="h4">Getting Started</h2>
+
+                    <p>To enjoy it just link to your template or to your stylesheet the <code>css/style.css</code> file.</p>
+
+                    <p>You can also use the less file available at <code>less/style.less</code>. With this file you can overide easily customize the <a href="#less-variables">Less variables listed below</a> in order to define colors, sizes and more.</p>
+
+                    <p>In order to avoid the animation behave on load, don't forget to include the <code>jquery.preload.js</code> script (located at <code>/js</code>), and add and <code>.preload</code> class to you body</p>
+
+                    <hr>
+
+                    <h2 class="h4">Bower usage</h2>
+                    <p>Install and manage Toggle Switch using Bower.</p>
+                    <code>$ bower install toggle-switch</code>
+                    
+
+                    <hr>
+
+                    <h2 class="h4" id="less-variables">Less Variables</h2>
+                    <p>The variables are divided in two categories, the <code>modules</code> and the <code>themes</code>. The module variables change the structure and the behave of the component in your template. The theme just change the look without size or layout consequences. Those two kinds of variables are called <code>parameters</code> and you can find them in <code>/less/parameters</code></p>
+
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <span class="label label-primary">M</span>
+                            <strong>@toggle-switch-container_width</strong>: 50px
+                        </li>
+
+                        <li class="list-group-item">
+                            <span class="label label-primary">M</span>
+                            <strong>@toggle-switch-container_height</strong>: 30px
+                        </li>
+
+                        <li class="list-group-item">
+                            <span class="label label-primary">M</span>
+                            <strong>@toggle-switch-container_borderWidth</strong>: 0
+                        </li>
+
+                        <li class="list-group-item">
+                            <span class="label label-danger">T</span>
+                            <strong>@toggle-switch-container_backgroundColor</strong>: #5e5d5d
+                        </li>
+
+                        <li class="list-group-item">
+                            <span class="label label-danger">T</span>
+                            <strong>@toggle-switch-container_backgroundColor-_checked</strong>: #e36566
+                        </li>
+
+                        <li class="list-group-item">
+                            <span class="label label-danger">T</span>
+                            <strong>@toggle-switch-container_borderColor</strong>: transparent
+                        </li>
+
+                        <li class="list-group-item">
+                            <span class="label label-danger">T</span>
+                            <strong>@toggle-switch-container_boxShadow</strong>: 0
+                        </li>
+
+                        <li class="list-group-item">
+                            <span class="label label-danger">T</span>
+                            <strong>@toggle-switch_opacity-_disabled</strong>: 0.25
+                        </li>
+
+                        <li class="list-group-item">
+                            <span class="label label-danger">T</span>
+                            <strong>@toggle-switch-container_transitionDuration</strong>: 100ms
+                        </li>
+
+                        <li class="list-group-item">
+                            <span class="label label-danger">T</span>
+                            <strong>@toggle-switch-container_transitionAnimation</strong>: ease
+                        </li>
+                    </ul>
+
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <span class="label label-primary">M</span>
+                            <strong>@toggle-switch-button_margin</strong>: 2px
+                        </li>
+
+                        <li class="list-group-item">
+                            <span class="label label-primary">M</span>
+                            <strong>@toggle-switch-button_widthDiff-_transition</strong>: 10px
+                        </li>
+
+                        <li class="list-group-item">
+                            <span class="label label-danger">T</span>
+                            <strong>@toggle-switch-button-backgroundColor</strong>: white
+                        </li>
+
+                        <li class="list-group-item">
+                            <span class="label label-danger">T</span>
+                            <strong>@toggle-switch-button_boxShadow</strong>: 0 2px 5px 0 fade(#333, 25%)
+                        </li>
+
+                        <li class="list-group-item">
+                            <span class="label label-danger">T</span>
+                            <strong>@toggle-switch-button_animationDuration</strong>: 500ms
+                        </li>
+                    </ul>
+
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <span class="label label-primary">M</span>
+                            <strong>@toggle-switch-label_marginLeft</strong>: 10px
+                        </li>
+
+                        <li class="list-group-item">
+                            <span class="label label-primary">M</span>
+                            <strong>@toggle-switch-label_marginRight</strong>: 0
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="doc-section">
+                        <div class="doc-title">
+                            Toggle switch normal
+                        </div>
+
+                        <div class="doc-example">
+                            <input class="toggle-switch" id="example-1" type="checkbox">
+                            <label for="example-1">Label</label>
+                        </div>
+
+                        <code class="doc-code" data-lang="html">
+                            <span class="open-tag tag">input <span class="attr">class=</span><span class="value">toggle-switch</span> <span class="attr">id=</span><span class="value">example-1</span> <span class="attr">type=</span><span class="value">checkbox</span></span>
+                            <br>
+                            <span class="open-tag tag">label <span class="attr">for=</span><span class="value">example-1</span></span>Label<span class="close-tag tag">label</span>
+                        </code>
+                    </div>
+
+                    <hr>
+
+                    <div class="doc-section">
+                        <div class="doc-title">
+                            Toggle switch checked
+                        </div>
+                        <div class="doc-example">
+                            <input class="toggle-switch" type="checkbox" id="toggle-switch-example-2" checked>
+                            <label for="toggle-switch-example-2">Label Checked</label>
+                        </div>
+
+                        <code class="doc-code" data-lang="html">
+                            <span class="open-tag tag">input <span class="attr">class=</span><span class="value">toggle-switch</span> <span class="attr">id=</span><span class="value">toggle-switch-example-2</span> <span class="attr">type=</span><span class="value">checkbox</span> <span class="attr">checked</span></span>
+                            <br>
+                            <span class="open-tag tag">label <span class="attr">for=</span><span class="value">toggle-switch-example-2</span></span>Label<span class="close-tag tag">label</span>
+                        </code>
+                    </div>
+
+                    <hr>
+
+                    <div class="doc-section">
+                        <div class="doc-title">
+                            Toggle switch disabled
+                        </div>
+                        <div class="doc-example">
+                            <input class="toggle-switch" type="checkbox" id="toggle-switch-example-3" disabled>
+                            <label for="toggle-switch-example-3">Label Disabled</label>
+                        </div>
+
+                        <code class="doc-code" data-lang="html">
+                            <span class="open-tag tag">input <span class="attr">class=</span><span class="value">toggle-switch</span> <span class="attr">id=</span><span class="value">toggle-switch-example-3</span> <span class="attr">type=</span><span class="value">checkbox</span> <span class="attr">disabled</span></span>
+                            <br>
+                            <span class="open-tag tag">label <span class="attr">for=</span><span class="value">toggle-switch-example-3</span></span>Label<span class="close-tag tag">label</span>
+                        </code>
+                    </div>
+
+                    <hr>
+
+                    <div class="doc-section">
+                        <div class="doc-title">
+                            Toggle switch disabled & checked
+                        </div>
+                        <div class="doc-example">
+                            <input class="toggle-switch" type="checkbox" id="toggle-switch-example-4" checked disabled>
+                            <label for="toggle-switch-example-4">Label Disabled</label>
+                        </div>
+
+                        <code class="doc-code" data-lang="html">
+                            <span class="open-tag tag">input <span class="attr">class=</span><span class="value">toggle-switch</span> <span class="attr">id=</span><span class="value">toggle-switch-example-4</span> <span class="attr">type=</span><span class="value">checkbox</span> <span class="attr">disabled</span> <span class="attr">checked</span></span>
+                            <br>
+                            <span class="open-tag tag">label <span class="attr">for=</span><span class="value">toggle-switch-example-4</span></span>Label<span class="close-tag tag">label</span>
+                        </code>
+                    </div>
+                    
+                    <br>
+
+                    <p class="small text-right">with love from Nantes</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

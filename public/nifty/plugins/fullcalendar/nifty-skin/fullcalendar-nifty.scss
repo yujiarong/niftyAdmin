@@ -1,0 +1,221 @@
+/* FULL CALENDAR */
+/* ====================================== */
+/* Skin for Full Calendar */
+
+$body-color					: #6c7b88;
+$font-size-base				: 13px;
+$border-color-base			: #e9e9e9;
+$font-semibold				: 600;
+$border-radius-base			: 0;
+
+$light-bg                   : #fff;
+$gray-bg                    : #e6eaed;
+$primary-bg                 : #42A5F5;
+$info-bg                    : #00BCD4;
+$success-bg                 : #8BC34A;
+$warning-bg                 : #FFA726;
+$danger-bg                  : #ef5350;
+$mint-bg                    : #26A69A;
+$purple-bg                  : #BA68C8;
+$pink-bg                    : #EC407A;
+$dark-bg                    : #37474F;
+
+$text-muted                 : #758697;
+$light-color                : $body-color;
+$primary-color              : #fff;
+$info-color                 : #fff;
+$success-color              : #fff;
+$warning-color              : #fff;
+$danger-color               : #fff;
+$mint-color                 : #fff;
+$purple-color               : #fff;
+$pink-color                 : #fff;
+$dark-color                 : #fff;
+
+
+
+@mixin fc-variant($color, $background){
+    &:not(.fc-list), &.fc-list:before{
+        background-color: $background;
+        border-color: $background;
+        color: $color;
+    }
+}
+
+
+#container{
+    .fc-unthemed th,
+    .fc-unthemed td,
+    .fc-unthemed hr,
+    .fc-unthemed thead,
+    .fc-unthemed tbody,
+    .fc-unthemed .fc-row,
+    .fc-unthemed .fc-popover {
+        border-color: $border-color-base;
+    }
+
+
+    .fc-row.fc-widget-header table{
+        th{
+            height: 30px;
+            vertical-align: middle;
+            background-color: $primary-bg;
+            color: $primary-color;
+        }
+    }
+    .fc-toolbar{
+        margin-bottom: 0;
+        h2{
+            font-weight: $font-semibold;
+            font-size: 20px;
+        }
+        .fc-left, .fc-center, .fc-right{
+            margin-bottom: 10px;
+            float: none
+        }
+        > * > *, .fc-button-group > *{
+            float: none;
+        }
+    }
+
+
+    .fc-button, .fc button{
+        cursor: pointer;
+        padding: 6px 12px;
+        border-radius: $border-radius-base;
+        font-size: $font-size-base;
+        line-height: 1.42857;
+        height: auto;
+        vertical-align: middle;
+        box-shadow: none;
+        text-shadow: none;
+        transition : all .25s;
+        text-transform: capitalize;
+        background-image: none;
+        background-color: darken($light-bg,1.5%);
+        border: 1px solid darken($gray-bg, 7%);
+        color: $light-color;
+        &.fc-state-active{
+            background-color: $primary-bg;
+            color: $primary-color;
+            border-color: $primary-bg;
+            box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    .fc-button:not(.disabled):not(:disabled):active,
+    .fc button:not(.disabled):not(:disabled).active {
+        box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    .fc-state-default.fc-corner-left {
+        border-bottom-left-radius: $border-radius-base;
+        border-top-left-radius: $border-radius-base;
+    }
+
+
+    .fc-state-default.fc-corner-right {
+        border-bottom-right-radius: $border-radius-base;
+        border-top-right-radius: $border-radius-base;
+    }
+
+    .fc-unthemed .fc-today {
+        background-color: #fbfccc;
+    }
+
+
+    .fc-popover.fc-more-popover .fc-event{
+        padding: 5px 12px;
+        font-size: 1em;
+        margin-bottom: 5px;
+    }
+    .fc-view-container .fc-event{
+        padding: 2px 5px;
+        margin-bottom: 0;
+        font-size: .85em;
+    }
+    .fc-event{
+        background-color: $primary-bg;
+        cursor: -webkit-grab;
+        cursor: grab;
+        color: $primary-color;
+        border: 1px solid $primary-bg;
+        padding: 7px 12px;
+        font-size: 1em;
+        margin-bottom: 10px;
+        border-radius: $border-radius-base;
+        width: auto !important;
+
+
+        &.ui-draggable-dragging{
+            cursor: -webkit-grabbing;
+            cursor: grabbing;
+        }
+        &.fc-list{
+            background-color: #f5f5f5;
+            color: inherit;
+            border-color: transparent;
+            position: relative;
+            padding-left: 30px;
+            &:before{
+                content: '';
+                display: block;
+                background-color: $primary-bg;
+                color: $primary-color;
+                width: 8px;
+                height: 8px;
+                position: absolute;
+                top: 50%;
+                left: 5px;
+                margin-top: -4px;
+            }
+            &.ui-draggable-dragging{
+                box-shadow: 0 0 5px rgba(0,0,0,0.1)
+            }
+        }
+
+        &.info, &[data-class="info"]{
+            @include fc-variant($info-color, $info-bg);
+        }
+        &.success, &[data-class="success"]{
+            @include fc-variant($success-color, $success-bg);
+        }
+        &.warning, &[data-class="warning"]{
+            @include fc-variant($warning-color, $warning-bg);
+        }
+        &.danger, &[data-class="danger"]{
+            @include fc-variant($danger-color, $danger-bg);
+        }
+        &.mint, &[data-class="mint"]{
+            @include fc-variant($mint-color, $mint-bg);
+        }
+        &.purple, &[data-class="purple"]{
+            @include fc-variant($purple-color, $purple-bg);
+        }
+        &.pink, &[data-class="pink"]{
+            @include fc-variant($pink-color, $pink-bg);
+        }
+        &.dark, &[data-class="dark"]{
+            @include fc-variant($dark-color, $dark-bg);
+        }
+    }
+
+    .fc-highlight {
+        opacity: .5;
+    }
+
+}
+
+@media (min-width: 640px){
+    #container .fc-toolbar{
+        .fc-left{
+            float: left
+        }
+        .fc-right{
+            float: right;
+        }
+        > * > *, .fc-button-group > *{
+            float: left;
+        }
+    }
+}

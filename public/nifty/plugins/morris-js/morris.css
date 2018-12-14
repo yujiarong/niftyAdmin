@@ -1,0 +1,79 @@
+/* @license
+morris.js v0.5.1
+Copyright 2014 Olly Smith All rights reserved.
+Licensed under the BSD-2-Clause License.
+*/
+
+.morris-hover {
+    position: absolute;
+    text-align: center;
+    z-index: 1000;
+    cursor: default;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.morris-hover.morris-default-style {
+    padding: 7px 15px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .3);
+    border-radius: 3px
+}
+
+.morris-hover.morris-default-style .morris-hover-row-label {
+    font-weight: 600;
+    white-space: nowrap;
+    color: #4d627b;
+    font-size: 1.03em;
+    margin-bottom: 5px
+}
+
+.morris-hover.morris-default-style .morris-hover-point {
+    white-space: nowrap;
+    color: #8f9ea6 !important;
+    font-size: .9em;
+}
+
+.morris-legend-items {
+    display: inline-block;
+    padding-left: 15px;
+    font-size: .85em;
+    vertical-align: middle
+}
+
+.morris-legend-items > span {
+    display: inline-block;
+    width: .6em;
+    height: .6em;
+    margin-right: 7px;
+    border-radius: 50%;
+    vertical-align: middle
+}
+
+.panel-body > .morris-full-content,
+.pad-all > .morris-full-content {
+    margin: 0 -40px -40px;
+    overflow: hidden;
+}
+
+.panel-body > .morris-full-content {
+    margin: 0 -45px -50px;
+}
+
+.morris-full-content + div {
+    margin-top: 45px
+}
+
+.morris-donut text + text > tspan {
+    font-weight: 400 !important;
+}
+
+.morris-donut text {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-weight: 400 !important;
+    color: #ddd !important;
+}

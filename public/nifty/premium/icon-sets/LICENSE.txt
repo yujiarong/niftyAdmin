@@ -1,0 +1,31 @@
+PREMIUM ICONS - 1,033 Line and solid icons.
+Version 1.2, April 2016
+
+
+LICENSE
+
+- You can’t Sell the Icons, even if only for one client.
+
+
+- You can’t re-distribute the Icons as stock, in a tool or other template, or with source files. 
+  You can’t do this with an Item either on its own or bundled with other items, and even if you modify the Icons. 
+
+  
+- You can’t re-distribute or make available the Icons as-is or with superficial modifications. 
+  These things are not allowed even if the re-distribution is for Free.
+
+
+- Although you can modify the Icons and therefore delete unwanted Icons before creating your single End Product, 
+  you can’t extract and use it in other template or application.
+  For example: You can delete unwanted icons from the theme. But you can't extract an icon to use outside of the theme.
+
+
+- You must not permit an end user of the End Product to extract the Icons and use it separately from the End Product.
+
+
+- You can’t use an Icons in a logo, trademark, or service mark. Although you can delete unwanted Icons before 
+  creating your single End Product, you can’t extract and use the Icons on a stand-alone basis.
+  For example: You can delete unwanted icons from the theme. But you can't extract an icon to use outside of the theme.
+
+
+- You must not permit an end user of the End Product to extract the Icons and use it separately from the End Product.

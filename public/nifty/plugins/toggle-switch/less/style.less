@@ -1,0 +1,111 @@
+  ///////////////////
+ // Toggle Switch //
+///////////////////
+
+
+
+
+ // Resources
+/////////////
+
+@import 'parameters/module';
+@import 'parameters/theme';
+
+
+
+ // Style
+/////////
+
+.toggle-switch {
+    display: none;
+
+    + label {
+        display: inline-block;
+        position: relative;
+        font-weight: inherit;
+        cursor: pointer;
+        -webkit-touch-callout: none;
+        margin-right: @toggle-switch-label-margin-right;
+        margin-bottom: 0;
+        padding-left: @toggle-switch-container-width + @toggle-switch-label-margin-left;
+        line-height: @toggle-switch-container-height;
+        box-sizing: border-box;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        // container
+        &:before {
+            position: absolute;
+            display: inline-block;
+            left: 0;
+            content: '';
+            border-style: solid;
+            width: @toggle-switch-container-width;
+            height: @toggle-switch-container-height;
+            border-width: @toggle-switch-container-border-width;
+            border-color: @toggle-switch-container-border-color;
+            background-color: @toggle-switch-container-bg;
+            box-sizing: border-box;
+            box-shadow: @toggle-switch-container-box-shadow;
+            border-radius: @toggle-switch-container-height / 2;
+            transition: all @toggle-switch-container-transition-duration;
+        }
+
+        // button
+        &:after {
+            position: absolute;
+            content: '';
+            width: @toggle-switch-container-height - (@toggle-switch-button-margin * 2);
+            height: @toggle-switch-container-height - (@toggle-switch-button-margin * 2);
+            top: @toggle-switch-button-margin;
+            left: @toggle-switch-button-margin;
+            background-color: @toggle-switch-button-bg;
+            box-sizing: border-box;
+            box-shadow: @toggle-switch-button-box-shadow;
+            border-radius: @toggle-switch-container-height;
+            transition: left @toggle-switch-button-transition-duration, right @toggle-switch-button-transition-duration;
+        }
+    }
+
+    &:checked {
+        + label {
+            // container
+            &:before {
+                background-color: @toggle-switch-container-bg-checked;
+                transition: all @toggle-switch-container-transition-duration;
+            }
+
+            // button
+            &:after {
+                left: @toggle-switch-container-width - (@toggle-switch-container-height - (@toggle-switch-button-margin * 2)) - @toggle-switch-button-margin;
+                transition: left @toggle-switch-button-transition-duration, right @toggle-switch-button-transition-duration;
+            }
+        }
+    }
+
+    &:disabled {
+        + label {
+            cursor: no-drop;
+
+            // container
+            &:before {
+                opacity: @toggle-switch-opacity-disabled;
+            }
+        }
+    }
+}
+
+.preload {
+    .toggle-switch {
+        + * {
+            &,
+            &:before,
+            &:after {
+                transition: 0 !important;
+            }
+        }
+    }
+}

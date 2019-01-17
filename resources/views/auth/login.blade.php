@@ -33,7 +33,7 @@
     <!--Pace - Page Load Progress Par [OPTIONAL]-->
     <link href="/nifty/plugins/pace/pace.min.css" rel="stylesheet">
     <script src="/nifty/plugins/pace/pace.min.js"></script>
-
+    <link href="/nifty/plugins/animate-css/animate.min.css" rel="stylesheet">
 
         
     <!--Demo [ DEMONSTRATION ]-->
@@ -66,15 +66,6 @@
                     </div>
                     <form action="{{ route('login') }}" method="post">
                         {{ csrf_field() }}
-                        @if (session()->get('errors'))
-                            <div class="alert alert-danger">
-                                @if(is_array(json_decode(session()->get('errors'), true)))
-                                    {!! implode('', session()->get('errors')->all(':message<br/>')) !!}
-                                @else
-                                     {!! session()->get('errors') !!}
-                                @endif
-                            </div>
-                        @endif
                         <div class="form-group has-feedback">
                             <input type="text" class="form-control"  name="email" placeholder="Email" autofocus>
                             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -119,11 +110,17 @@
 
     <!--NiftyJS [ RECOMMENDED ]-->
     <script src="/nifty/js/nifty.min.js"></script>
-
+    <script src="/js/comment.js"></script>
     <!--=================================================-->
     
     <script type="text/javascript">
-        $('div.alert').not('.alert-important').delay(2000).slideUp(300);
+        @if (session()->get('errors'))         
+            @if(is_array(json_decode(session()->get('errors'), true)))
+                notify('danger' ,"登陆失败","{!! implode('', session()->get('errors')->all(':message<br/>')) !!}")
+            @else
+                notify('danger',"登陆失败","{!! session()->get('errors') !!}")
+            @endif
+        @endif
     </script>
 
 </body>

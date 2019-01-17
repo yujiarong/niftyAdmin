@@ -3,7 +3,7 @@
                 You have <a href="#" class="text-main"><span class="badge badge-danger">3</span> pending action.</a>
             </div>
             <div class="hide-fixed pull-right pad-rgt">
-                14GB of <strong>512GB</strong> Free.
+{{--                 14GB of <strong>512GB</strong> Free. --}}
             </div>
-            <p class="pad-lft">&#0169; 2017 Your Company</p>
+            <p class="pad-lft">&#0169; 第十万个胖子</p>
         </footer>

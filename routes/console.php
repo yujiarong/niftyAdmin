@@ -14,5 +14,14 @@ use Illuminate\Foundation\Inspiring;
 */
 
 Artisan::command('inspire', function () {
+$collection = collect([1, 2, 3, 4]);
+
+$filtered = $collection->reject(function ($value, $key) {
+    return $value > 2;
+});
+
+print_r( $filtered->all() );
+
+
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');

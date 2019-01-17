@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Nifty </title>
 
     <!--STYLESHEET-->
@@ -17,7 +18,7 @@
 
     <!--Bootstrap Stylesheet [ REQUIRED ]-->
     <link href={{ asset('nifty/css/bootstrap.min.css') }} rel="stylesheet">
-
+    <link href={{ asset("nifty/plugins/animate-css/animate.min.css") }} rel="stylesheet">
 
     <!--Nifty Stylesheet [ REQUIRED ]-->
     <link href="/nifty/css/nifty.min.css" rel="stylesheet">
@@ -43,13 +44,13 @@
 <!--TIPS-->
 <!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
 <body>
-    <div id="container" class="effect aside-float aside-bright mainnav-lg">
+    <div id="container" class="effect aside-float aside-bright mainnav-lg" style="background-color:#ecf0f5">
         
         <!--NAVBAR-->
         @include('layouts.header')
         <!--END NAVBAR-->
 
-        <div class="boxed">
+        <div class="boxed" >
 
             <!--CONTENT CONTAINER-->
             <div id="content-container" style="background-color:#ecf0f5">
@@ -90,7 +91,13 @@
 
     <!--NiftyJS [ RECOMMENDED ]-->
     <script src="/nifty/js/nifty.min.js"></script>
-
+    <!--Bootbox Modals [ OPTIONAL ]-->
+    <script src="/nifty/plugins/bootbox/bootbox.min.js"></script>
+    <!--Modals [ SAMPLE ]-->
+    <script src="/nifty/js/demo/ui-modals.js"></script>    
+    <script src="/js/comment.js"></script>
+    <script type="text/javascript">     
+    </script>
     <!--Demo script [ DEMONSTRATION ]-->
     {{-- <script src="/nifty/js/demo/nifty-demo.min.js"></script> --}}
     @yield('scripts')

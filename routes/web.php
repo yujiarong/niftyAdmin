@@ -11,10 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
+Route::group(['middleware' => 'auth'], function() {
+	Route::get('/home', 'HomeController@index')->name('home');
+	includeRouteFiles(__DIR__.DIRECTORY_SEPARATOR.'Backend'.DIRECTORY_SEPARATOR);
+});
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+

@@ -86,7 +86,7 @@
                         
                                     <!--Menu list item-->
                                     <li class="active-sub">
-                                        <a href="#">
+                                        <a href="/">
                                             <i class="demo-pli-home"></i>
                                             <span class="menu-title">Dashboard</span>
                                         </a>
@@ -128,14 +128,15 @@
                                     <li>
                                         <a href="#">
                                             <i class="demo-pli-gear"></i>
-                                            <span class="menu-title">模块</span>
+                                            <span class="menu-title">Access Management</span>
                                             <i class="arrow"></i>
                                         </a>
                         
                                         <!--Submenu-->
                                         <ul class="collapse">
-                                            <li><a href="ui-buttons.html">子模块</a></li>
-                                            
+                                            <li><a href="{{ route('access.user.index') }}">User </a></li>
+                                            <li><a href="{{ route('access.role.index') }}">Role </a></li>
+                                            <li><a href="{{ route('access.permission.index') }}">Permission </a></li>
                                         </ul>
                                     </li>
 

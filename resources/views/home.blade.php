@@ -110,7 +110,7 @@
                                     <!--===================================================-->
                                     <div class="panel">
                                         <div class="panel-body text-center">
-                                            <img alt="Profile Picture" class="img-lg img-circle mar-btm" src="img/profile-photos/5.png">
+                                            <img alt="Profile Picture" class="img-lg img-circle mar-btm" src="nifty/img/profile-photos/5.png">
                                             <p class="text-lg text-semibold mar-no text-main">Donald Brown</p>
                                             <p class="text-muted">Web and Graphic designer</p>
                                             <div class="mar-top">
@@ -143,7 +143,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td class="min-w-td">1</td>
-                                                    <td><img src="img/profile-photos/1.png" alt="Profile Picture" class="img-circle img-sm"></td>
+                                                    <td><img src={{ asset("nifty/img/profile-photos/1.png") }} alt="Profile Picture" class="img-circle img-sm"></td>
                                                     <td><a class="btn-link" href="#">John Doe</a></td>
                                                     <td>john.doe@example.com</td>
                                                     <td><span class="label label-table label-info">Trial</span></td>
@@ -157,7 +157,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="min-w-td">2</td>
-                                                    <td><img src="img/profile-photos/2.png" alt="Profile Picture" class="img-circle img-sm"></td>
+                                                    <td><img src={{ asset("nifty/img/profile-photos/2.png") }} alt="Profile Picture" class="img-circle img-sm"></td>
                                                     <td><a class="btn-link" href="#">Charles S Boyle</a></td>
                                                     <td>char_boy90@example.com</td>
                                                     <td><span class="label label-table label-success">Free</span></td>
@@ -171,7 +171,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="min-w-td">3</td>
-                                                    <td><img src="img/profile-photos/3.png" alt="Profile Picture" class="img-circle img-sm"></td>
+                                                    <td><img src={{ asset("nifty/img/profile-photos/3.png") }} alt="Profile Picture" class="img-circle img-sm"></td>
                                                     <td><a class="btn-link" href="#">Scott S. Calabrese</a></td>
                                                     <td>scot.em23@example.com</td>
                                                     <td><span class="label label-table label-purple">Bussiness</span></td>
@@ -185,7 +185,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="min-w-td">4</td>
-                                                    <td><img src="img/profile-photos/4.png" alt="Profile Picture" class="img-circle img-sm"></td>
+                                                    <td><img src={{ asset("nifty/img/profile-photos/4.png") }} alt="Profile Picture" class="img-circle img-sm"></td>
                                                     <td><a class="btn-link" href="#">Lucy Moon</a></td>
                                                     <td>just_lucy.doe@example.com</td>
                                                     <td><span class="label label-table label-mint">Personal</span></td>
@@ -199,7 +199,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="min-w-td">5</td>
-                                                    <td><img src="img/profile-photos/5.png" alt="Profile Picture" class="img-circle img-sm"></td>
+                                                    <td><img src={{ asset("nifty/img/profile-photos/5.png") }} alt="Profile Picture" class="img-circle img-sm"></td>
                                                     <td><a class="btn-link" href="#">Teresa L. Doe</a></td>
                                                     <td>ter.l.doe@example.com</td>
                                                     <td><span class="label label-table label-success">Free</span></td>
@@ -213,7 +213,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="min-w-td">6</td>
-                                                    <td><img src="img/profile-photos/6.png" alt="Profile Picture" class="img-circle img-sm"></td>
+                                                    <td><img src={{ asset("nifty/img/profile-photos/6.png") }} alt="Profile Picture" class="img-circle img-sm"></td>
                                                     <td><a class="btn-link" href="#">Maria Marz</a></td>
                                                     <td>maria_545@example.com</td>
                                                     <td><span class="label label-table label-info">Trial</span></td>

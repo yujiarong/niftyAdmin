@@ -35,7 +35,7 @@
 
                         <!--Mega dropdown-->
                         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                        <li class="mega-dropdown">
+                     {{--    <li class="mega-dropdown">
                             <a href="#" class="mega-dropdown-toggle">
                                 <i class="demo-pli-layout-grid"></i>
                             </a>
@@ -123,7 +123,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </li>
+                        </li> --}}
                         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                         <!--End mega dropdown-->
 
@@ -138,7 +138,7 @@
                             </a>
 
 
-                            <!--Notification dropdown menu-->
+                          {{--   <!--Notification dropdown menu-->
                             <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
                                 <div class="nano scrollable">
                                     <div class="nano-content">
@@ -193,7 +193,7 @@
                                         <i class="pci-chevron chevron-right pull-right"></i>Show All Notifications
                                     </a>
                                 </div>
-                            </div>
+                            </div> --}}
                         </li>
                         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                         <!--End notifications dropdown-->
@@ -223,14 +223,11 @@
                                     <li>
                                         <a href="#"><i class="demo-pli-male icon-lg icon-fw"></i> Profile</a>
                                     </li>
-                                    <li>
+                          {{--           <li>
                                         <a href="#"><span class="badge badge-danger pull-right">9</span><i class="demo-pli-mail icon-lg icon-fw"></i> Messages</a>
-                                    </li>
+                                    </li> --}}
                                     <li>
                                         <a href="#"><span class="label label-success pull-right">New</span><i class="demo-pli-gear icon-lg icon-fw"></i> Settings</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="demo-pli-computer-secure icon-lg icon-fw"></i> Lock screen</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('logout') }}"  onclick="event.preventDefault();
@@ -246,11 +243,11 @@
                         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                         <!--End user dropdown-->
 
-                        <li>
+                      {{--   <li>
                             <a href="#" class="aside-toggle">
                                 <i class="demo-pli-dot-vertical"></i>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
                 <!--================================-->

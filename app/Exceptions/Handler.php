@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Session\TokenMismatchException;
 
 class Handler extends ExceptionHandler
 {
@@ -47,7 +48,10 @@ class Handler extends ExceptionHandler
      * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $exception)
-    {
+    {   
+        if($exception instanceof TokenMismatchException && $request->expectsJson()){
+            return response()->json(['code'=>401,'msg'=>'Token过期请刷新页面']);
+        }
         return parent::render($request, $exception);
     }
 }

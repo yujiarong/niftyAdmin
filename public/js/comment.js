@@ -38,7 +38,7 @@ function niftydelete(id,url)
                             success     : function(e){
                                 if(e.code  == 200){
                                     notify('success','success','您选中的信息已经删除了');
-                                    window.location.reload();
+                                    setTimeout("window.location.reload()",2000);
                                 }else{
                                     notify('warning',e.msg);
                                 }

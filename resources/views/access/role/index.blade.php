@@ -4,14 +4,15 @@
 <link href={{ asset('nifty/plugins/datatables/media/css/dataTables.bootstrap.css') }}  rel="stylesheet">
 <link href={{ asset('nifty/plugins/datatables/extensions/Responsive/css/responsive.dataTables.min.css') }} rel="stylesheet">
 <link href={{ asset("nifty/plugins/animate-css/animate.min.css") }}  rel="stylesheet">
+
                 <div id="page-content">
                     <!-- Basic Data Tables -->
                     <!--===================================================-->
                     <div class="panel">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Permission Manager</h3>
+                            <h3 class="panel-title">Role Manager</h3>
                             <div id="demo-custom-toolbar2" class="table-toolbar-left">
-                                <button id="demo-btn-addrow" class="btn btn-primary"><i class="demo-pli-add"></i> Add</button>
+                                <a  href="/access/role/create" id="demo-btn-addrow" class="btn btn-primary"><i class="demo-pli-add"></i> Add</a>
                             </div>
                         </div>
 
@@ -20,7 +21,7 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Permission Name</th>
+                                        <th>Role Name</th>
                                         <th class="min-tablet">Creat Time</th>
                                         <th class="min-tablet">Actions</th>
                                     </tr>
@@ -42,7 +43,7 @@
                     <!--Modal header-->
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><i class="pci-cross pci-circle"></i></button>
-                        <h4 class="modal-title">Permission Edit</h4>
+                        <h4 class="modal-title">Role Edit</h4>
                     </div>
 
                     <!--Modal body-->
@@ -50,9 +51,9 @@
                         <div  class="col-md-12">
                             <div  class="form-horizontal">
                                 <div class="form-group"> 
-                                    <label class="col-md-4 control-label" for="email">Permission Name</label>
+                                    <label class="col-md-4 control-label" for="email">Role Name</label>
                                     <div class="col-md-4"> 
-                                    <input id="fix_name" name="fix_name" type="text" placeholder="Permission Name" class="form-control input-md"> 
+                                    <input id="name" name="name" type="text" placeholder="Role Name" class="form-control input-md"> 
                                     </div>
                                 </div>    
                                 <input type="hidden" id="id">    
@@ -108,7 +109,7 @@ $(document).on('nifty.ready', function() {
         serverSide: true,
         ajax: {
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            url: '{{ route("access.permission.tableGet") }}',
+            url: '{{ route("access.role.tableGet") }}',
             type: 'post'
         },
         columns: [
@@ -122,8 +123,8 @@ $(document).on('nifty.ready', function() {
                 searchable: false,
                     render: function (data) {
                         var actions = '<div class="btn-group">';
-                        actions += '<a class="btn btn-sm btn-default btn-hover-success demo-psi-pen-5 add-tooltip" href="#" data-original-title="Edit"  onclick="editPer('+data.id+',\''+data.name+'\')"   data-container="body"></a>'
-                        actions += '<a class="btn btn-sm btn-default btn-hover-danger demo-pli-trash add-tooltip" href="#" data-original-title="Delete" onclick="deletePer('+data.id+')" data-container="body"></a>';
+                        actions += '<a class="btn btn-sm btn-default btn-hover-success demo-psi-pen-5 add-tooltip" href="/access/role/edit/'+data.id+'"  data-original-title="Edit"    data-container="body"></a>'
+                        actions += '<a class="btn btn-sm btn-default btn-hover-danger demo-pli-trash add-tooltip" href="#" data-original-title="Delete" onclick="deleteRole('+data.id+')" data-container="body"></a>';
                         actions += '</div>';
                         return actions;
                     }
@@ -133,70 +134,17 @@ $(document).on('nifty.ready', function() {
     });
     $('#demo-custom-toolbar2').appendTo($("div.newtoolbar"));
 
-    $('#demo-btn-addrow').on('click', function(){
-        bootbox.dialog({
-            title: "新增权限",
-            message:'<div class="row"> ' + '<div class="col-md-12"> ' +
-                    '<form class="form-horizontal"> ' + 
-                    '<div class="form-group"> ' +
-                            '<label class="col-md-4 control-label" for="name">Name</label> ' +
-                            '<div class="col-md-4"> ' +
-                            '<input id="name" name="name" type="text" placeholder="Permission name" class="form-control input-md"> ' +
-                            '</div>'+ 
-                    '</div>'+
-                    '</form> </div> </div>',
-            buttons: {
-                close:{
-                    label: "Close",
-                    className: "btn-default",                    
-                },                
-                success: {
-                    label: "Save",
-                    className: "btn-primary",
-                    callback: function() {
-                        var name        = $('#name').val();
-                        var is_close    = false;
-                        $.ajax({
-                            type        : 'post',
-                            url         : '{{ route("access.permission.store") }}',
-                            headers     : {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                            data        : {'name':name},
-                            async       : false, 
-                            success     : function(e){
-                                if(e.code  == 200){
-                                    $('#demo-dt-basic').dataTable().fnDraw(false);
-                                    notify('success','success','添加成功');
-                                    is_close = true;
-                                }else{
-                                    notify('warning',e.msg);
-                                }
-                            },
-                            error    : function(e) {
-                                notify('danger','出错了！请联系管理人员');
-                            }
-                        });
-                        if(!is_close){
-                            return false;
-                        }
-                    }
-                }
-            },
-            animateIn: 'zoomInDown',
-            animateOut : 'zoomOutUp'
-        });
-    });
-
 });
 
 function editPer(id,name)
 {   
     $('#id').val(id);
-    $('#fix_name').val(name);
+    $('#name').val(name);
     $('#demo-default-modal').modal('show');
 }    
 
 $('#save').click(function(event) {
-    var name = $('#fix_name').val();
+    var name = $('#name').val();
     var id   = $('#id').val();
     $.ajax({
         type        : 'post',
@@ -218,8 +166,8 @@ $('#save').click(function(event) {
     });    
 });
 
-function deletePer(id){
-    niftydelete(id,'{{ route("access.permission.delete") }}');
+function deleteRole(id){
+    niftydelete(id,'{{ route("access.role.delete") }}');
 }
 </script>
 

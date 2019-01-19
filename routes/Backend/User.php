@@ -6,7 +6,7 @@ Route::group([
     'prefix'     => 'access',
     'as'         => 'access.',
     'namespace'  => 'Access',
-    'middleware' => []
+    'middleware' => ['permission']
 ], function () {
 
 
@@ -25,7 +25,7 @@ Route::group([
         Route::group([], function () {
             Route::get('/role/index', 'RoleController@index')->name('role.index');
             Route::get('/role/create', 'RoleController@create')->name('role.create');
-            Route::post('/role/store', 'RoleController@store')->name('role.store');
+            Route::any('/role/store', 'RoleController@store')->name('role.store');
             Route::any('/role/update', 'RoleController@update')->name('role.update');
             Route::post('/role/delete', 'RoleController@delete')->name('role.delete');
             //For DataTables

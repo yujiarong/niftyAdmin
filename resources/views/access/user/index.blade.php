@@ -44,6 +44,7 @@
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th class="min-tablet">Email</th>
+                                        <th class="min-tablet">Roles</th>
                                         <th class="min-tablet">Creat Time</th>
                                         <th class="text-center">Actions</th>
                                     </tr>
@@ -100,6 +101,7 @@ $(document).on('nifty.ready', function() {
             {data: 'id', name: 'id'},
             {data: 'name', name: 'name'},
             {data: 'email', name: 'email'},
+            {data: 'roles', name: 'roles'},
             {data: 'created_at', name: 'created_at'},
             {
                 name: 'actions',
@@ -108,7 +110,7 @@ $(document).on('nifty.ready', function() {
                 searchable: false,
                     render: function (data) {
                         var actions = '<div class="btn-group">';
-                        actions += '<a class="btn btn-sm btn-default btn-hover-success demo-psi-pen-5 add-tooltip" href="#" data-original-title="Edit" data-container="body"></a>'
+                        actions += '<a class="btn btn-sm btn-default btn-hover-success demo-psi-pen-5 add-tooltip" href="/access/user/edit/'+data.id+'"  data-original-title="Edit" data-container="body"></a>'
                         actions += '<a class="btn btn-sm btn-default btn-hover-danger demo-pli-trash add-tooltip" href="#" data-original-title="Delete" onclick="deleteUser('+data.id+')" data-container="body"></a>';
                         actions += '</div>';
                         return actions;

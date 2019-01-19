@@ -54,6 +54,7 @@
 
             <!--CONTENT CONTAINER-->
             <div id="content-container" style="background-color:#ecf0f5">
+                @include('layouts.messages')
                 <!--Page content-->
                 @yield('content')
                 <!--End page content-->
@@ -101,6 +102,8 @@
     <!--Demo script [ DEMONSTRATION ]-->
     {{-- <script src="/nifty/js/demo/nifty-demo.min.js"></script> --}}
     @yield('scripts')
-
+    <script type="text/javascript">
+         $('div.alert').not('.alert-important').delay(4000).slideUp(300);
+    </script>
 </body>
 </html>

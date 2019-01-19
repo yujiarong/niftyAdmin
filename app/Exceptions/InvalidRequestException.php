@@ -18,6 +18,6 @@ class InvalidRequestException extends Exception
         if ($request->expectsJson()) {
             return response()->json([ 'code'=>$this->code,'msg' => $this->message]);
         }
-        return redirect()->back()->withErrors([ 'msg' => $this->message]);
+        return redirect()->back()->withErrors([ 'msg' => $this->message])->withInput();
     }
 }

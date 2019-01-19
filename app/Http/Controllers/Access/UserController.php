@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Exceptions\InvalidRequestException;
 use DataTables;
 use Validator;
+use Spatie\Permission\Models\Role;
+use DB;
 
 class UserController extends Controller
 {
@@ -16,9 +18,12 @@ class UserController extends Controller
     }
 
     public function tableGet(){
-        $userList  = User::select('*');
+        $userList  = User::select('*')->with('roles');
         return DataTables::of($userList)
-                ->make(true);        
+            ->editColumn('roles', function ($list) {
+                return $list->roles->pluck('name')->toArray();
+            })
+            ->make(true);        
     }
 
     public function store(Request $request){
@@ -36,9 +41,44 @@ class UserController extends Controller
         return ['code'=>200,'msg'=>'添加成功'];
     }
 
+    public function edit($id){
+        $user  = User::find($id);
+        if(empty($user)){
+            return redirect()->route('access.user.index')->withFlashWarning('此角色不存在');
+        }
+        $roles     = $user->roles->pluck('id')->toArray();
+        $all_roles = Role::query()->get()->toArray();
+        return view('access.user.edit',compact('user','roles','all_roles'));
+    }
+
     public function delete(Request $request){
-        $id = $request->input('id');
-        User::find($id)->delete();
+        $id   = $request->input('id');
+        DB::transaction(function ()use($id) {
+            $user = User::find($id);
+            $user->roles()->detach();
+            $user->delete();
+
+        });
         return ['code'=>200,'msg'=>'删除成功']; 
+    }
+
+    public function update(Request $request){
+        $this->validate($request, [
+            'name'    => 'required|max:255',
+            'roles'   => 'required',
+        ]);
+        $name        = $request->input('name');
+        $roles       = $request->input('roles');
+        $id          = $request->input('id');
+        try {
+            $user    = User::find($id);
+            $user->name  =  $name;
+            $user->save();
+    
+            $user->roles()->sync($roles);
+        }catch (\Exception $ex) {
+            throw new InvalidRequestException($ex->getMessage());
+        }
+        return redirect()->route('access.user.index')->withFlashSuccess('操作成功');
     }
 }

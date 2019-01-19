@@ -85,7 +85,7 @@
                                     <li class="list-header">Navigation</li>
                         
                                     <!--Menu list item-->
-                                    <li class="active-sub">
+                                    <li class="{{active_class(Active::checkUriPattern('dashboard'),'active-sub active' )}}">
                                         <a href="/">
                                             <i class="demo-pli-home"></i>
                                             <span class="menu-title">Dashboard</span>
@@ -125,7 +125,7 @@
                                     <li class="list-header">Components</li>
                         
                                     <!--Menu list item-->
-                                    <li>
+                                    <li class="{{ active_class(Active::checkUriPattern('access/*'),'active-sub active' ) }}">
                                         <a href="#">
                                             <i class="demo-pli-gear"></i>
                                             <span class="menu-title">Access Management</span>
@@ -134,9 +134,9 @@
                         
                                         <!--Submenu-->
                                         <ul class="collapse">
-                                            <li><a href="{{ route('access.user.index') }}">User </a></li>
-                                            <li><a href="{{ route('access.role.index') }}">Role </a></li>
-                                            <li><a href="{{ route('access.permission.index') }}">Permission </a></li>
+                                            <li class="{{ active_class(Active::checkUriPattern('access/user/*') ,'active-link active') }}"><a href="{{ route('access.user.index') }}">User </a></li>
+                                            <li class="{{ active_class(Active::checkUriPattern('access/role/*'),'active-link active') }}"><a href="{{ route('access.role.index') }}">Role </a></li>
+                                            <li class="{{ active_class(Active::checkUriPattern('access/permission/*'),'active-link active') }}"><a href="{{ route('access.permission.index') }}">Permission </a></li>
                                         </ul>
                                     </li>
 

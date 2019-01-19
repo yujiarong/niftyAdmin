@@ -11,11 +11,13 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', function () {
+    return redirect('/dashboard');
+});
 
 Auth::routes();
 Route::group(['middleware' => 'auth'], function() {
-	Route::get('/home', 'HomeController@index')->name('home');
+	Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 	includeRouteFiles(__DIR__.DIRECTORY_SEPARATOR.'Backend'.DIRECTORY_SEPARATOR);
 });
 

@@ -8,29 +8,69 @@ use Illuminate\Http\Request;
 use App\Exceptions\InvalidRequestException;
 use DataTables;
 use Validator;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use DB;
 
 class RoleController extends Controller
 {
     public function index(){
-        return view('access.permission.index');
+        return view('access.role.index');
     }
 
     public function tableGet(){
-        $userList  = User::select('*');
+        $userList  = Role::select('*');
         return DataTables::of($userList)
                 ->make(true);        
     }
 
     public function store(Request $request){
-        $validator = Validator::make($request->all(), [
-            'name' => 'bail|string|max:255',
+        $this->validate($request, [
+            'name'         => 'required|max:255',
+            'permissions'   => 'required',
         ]);
-        if($validator->fails()){
-            $errors = $validator->errors()->toArray();
-            $errors = array_reduce($errors, function($carry, $item){ return $carry.$item[0].'<br>';  },'' );
-            throw new InvalidRequestException($errors);
+        $name        = $request->input('name');
+        $permissions = $request->input('permissions');
+        $id          = $request->input('id');
+        try {
+            if(!empty($id)){
+                $role  = Role::find($id);
+                $role->name  =  $name;
+                $role->save();
+            }else{
+                $role = Role::create(['name' => $name]);
+            }
+            $role->permissions()->sync($permissions);
+        }catch (\Exception $ex) {
+            throw new InvalidRequestException($ex->getMessage());
         }
-        User::create($request->all());
-        return ['code'=>200,'msg'=>'添加成功'];
+        return redirect()->route('access.role.index')->withFlashSuccess('操作成功');
     }
+
+    public function create(Request $request){
+        $permissions = Permission::query()->get()->sortBy('name')->toArray();
+        return view('access.role.create',compact('permissions'));
+    }
+
+    public function edit($id){
+        $role  = Role::find($id);
+        if(empty($role)){
+            return redirect()->route('access.role.index')->withFlashWarning('此角色不存在');
+        }
+        $permissions     = $role->permissions->pluck('id')->toArray();
+        $all_permissions = Permission::query()->get()->sortBy('name')->toArray();
+        return view('access.role.edit',compact('role','permissions','all_permissions'));
+    }
+
+    public function delete(Request $request){
+        $id = $request->input('id');
+        DB::transaction(function ()use($id) {
+            $role = Role::find($id);
+            $role->users()->detach();//删除用户关联
+            $role->permissions()->detach();//删除权限关联
+            $role->delete();
+        });
+        return ['code'=>200,'msg'=>'删除成功']; 
+    }
+
 }

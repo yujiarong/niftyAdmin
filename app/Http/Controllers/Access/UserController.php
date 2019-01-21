@@ -37,7 +37,11 @@ class UserController extends Controller
             $errors = array_reduce($errors, function($carry, $item){ return $carry.$item[0].'<br>';  },'' );
             throw new InvalidRequestException($errors);
         }
-        User::create($request->all());
+        User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => bcrypt($request->input('password') ),
+        ]);
         return ['code'=>200,'msg'=>'添加成功'];
     }
 

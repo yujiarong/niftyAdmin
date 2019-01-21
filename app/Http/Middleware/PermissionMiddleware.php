@@ -12,15 +12,14 @@ class PermissionMiddleware
     protected $except = [
         'tableGet',//DataTable 接口
     ];
-    protected $isAdmin = false;
+    protected $isAdmin = true; //为true的时候 admin值角色不需要配置权限
 
     public function handle($request, Closure $next)
     {
         $route = Route::currentRouteName();
         $user  = app('auth')->user();
         $roles = $user->roles;
-
-        $permissions = $this->getPermission($roles);
+        $permissions = $this->getPermission($user->id, $roles);
         if ( $this->isAdmin($roles) || $this->except($route) || in_array($route, $permissions) ) {
             return $next($request);
         }
@@ -44,8 +43,9 @@ class PermissionMiddleware
         return $this->isAdmin && in_array('admin', $roles->pluck('name')->toArray());
     }
 
-    public function getPermission($roles){
-        $permissions = Cache::remember('permissions', 60, function () use($roles){
+    public function getPermission($id,$roles){
+        $key         = "permissions_{$id}";
+        $permissions = Cache::remember($key, 60, function () use($roles){
             $role_ids=  $roles->pluck('id')->toArray();
             $permissions = array_unique(array_reduce($role_ids, function ($result, $role_id) {
                 $role   = Role::find($role_id);

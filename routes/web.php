@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => 'auth' ], function() {
 	Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 	includeRouteFiles(__DIR__.DIRECTORY_SEPARATOR.'Backend'.DIRECTORY_SEPARATOR);
 });

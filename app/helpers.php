@@ -26,4 +26,12 @@ if (! function_exists('includeRouteFiles')) {
     }
 }
 
+function getPermissionCacheKey($id){
+    return "permission_{$id}";
+}
+
+function getNow($format = "Y-m-d H:i:s"){
+    return date($format);
+}
+
 ?>

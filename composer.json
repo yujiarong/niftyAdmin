@@ -10,6 +10,7 @@
         "hieu-le/active": "^3.5",
         "laravel/framework": "5.5.22",
         "laravel/tinker": "~1.0",
+        "php-amqplib/php-amqplib": "2.6.1",
         "spatie/laravel-permission": "^2.28",
         "yajra/laravel-datatables-oracle": "^8.13"
     },

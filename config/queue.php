@@ -82,4 +82,13 @@ return [
         'table' => 'failed_jobs',
     ],
 
+    'RMQ_CONFIG'    => [
+        'marketing'   => [
+            env('DEFAULT_AMQP_HOST' ,'192.168.200.193'),
+            env('DEFAULT_AMQP_USERNAME','admin'),
+            env('DEFAULT_AMQP_PASSWORD','admin'),
+            env('DEFAULT_AMQP_PORT', '5672'),
+            env('DEFAULT_AMQP_VHOST','marketing'),
+        ],
+    ],
 ];

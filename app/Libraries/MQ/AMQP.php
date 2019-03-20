@@ -203,31 +203,23 @@ class AMQP{
 
     /**
      * Pub/Sub 之批量消息接受，默认接受200条数据
-     * @param string $exchange 交换器名称
      * @param string $queue 队列名称
      * @param int $limit 返回条数
-     * @param bool $extral 返回数据类型， true为json_decode， false为json
-     * @return array
+     * @return array 
      */
-    public function queueSubscribeLimit($exchange, $queue, $limit = 200, $extral = true, $mqtype = 'fanout'){
+    public function batchGet($queue, $limit = 200){
 
         $messageCount = $this->channel->queue_declare($queue, false, true, false, false);
-        $this->channel->queue_bind($queue, $exchange);
         $i        = 0;
         $max      = $limit < 200 ? $limit : 200;
-        $orderids = array();
+        $data     = [];
         while($i < $messageCount[1] && $i < $max){
             $this->msg = $this->channel->basic_get($queue);
             $this->channel->basic_ack($this->msg->delivery_info['delivery_tag']);
-            if($extral === false){
-                array_push($orderids, $this->msg->body);
-            }else{
-                array_push($orderids, json_decode($this->msg->body, true));
-            }
+            $data[] = $this->msg->body;
             $i++;
         }
-
-        return $orderids;
+        return $data;
     }
 
     /**

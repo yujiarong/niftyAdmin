@@ -15,6 +15,10 @@ Route::get('/', function () {
     return redirect('/dashboard');
 });
 
+Route::get('avatar/{name}', function ($name) {
+    app('avatar')->getImage($name);
+});
+
 Auth::routes();
 Route::group(['middleware' => 'auth' ], function() {
 	Route::get('/dashboard', 'HomeController@index')->name('dashboard');

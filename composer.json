@@ -29,7 +29,8 @@
             "database/factories"
         ],
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Yjr\\Avatar\\": "packages/yjr/avatar/src/"
         },
         "files": [
             "app/helpers.php"

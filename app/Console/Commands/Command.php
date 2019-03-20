@@ -18,7 +18,7 @@ class Command extends BaseCommand
      */
     public function handle()
     {
-
+        print_r(app('config'));
     }
 
 

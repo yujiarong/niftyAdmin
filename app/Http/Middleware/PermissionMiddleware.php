@@ -20,7 +20,10 @@ class PermissionMiddleware
         $user  = app('auth')->user();
         $roles = $user->roles;
         $permissions = $this->getPermission($user->id, $roles);
-        if ( $this->isAdmin($roles) || $this->except($route) || in_array($route, $permissions) ) {
+        if(!env('PERMISSION_OPEN')){ //不开启认证
+            return $next($request);
+        }
+        if (  $this->isAdmin($roles) || $this->except($route) || in_array($route, $permissions) ) {
             return $next($request);
         }
         if($request->expectsJson()){

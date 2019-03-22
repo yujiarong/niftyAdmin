@@ -12,7 +12,7 @@ http://nifty.dwyjr.cn/
       5.yajra/laravel-datatables-oracle  lavel datatables 集成使用很方便.
       6.集成Passpord实现Oauth2的验证，也可以用密码授权令牌快速开发Api安全认证
       6.已经集成登陆,注册和用户管理模块
-      7.已经Permission 用于RBAC权限管理，认证中间件可以根绝自己的喜好改
+      7.已经集成Permission 用于RBAC权限管理，认证中间件可以根据自己的喜好改
       8.菜单选中激活扩展：hieu-le/active
 
 # 安装步骤

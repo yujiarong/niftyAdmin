@@ -1,4 +1,4 @@
-# laravel_nifty 
+# laravel nifty 
 laravel admin nifty  php后台管理框架
 http://nifty.dwyjr.cn/
 

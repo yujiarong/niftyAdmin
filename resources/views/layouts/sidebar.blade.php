@@ -102,15 +102,15 @@
                         
                                         <!--Submenu-->
                                         <ul class="collapse">
-                                            <li><a href="layouts-collapsed-navigation.html">子模块1</a></li>
-                                            <li><a href="layouts-offcanvas-navigation.html">子模块2</a></li>
+                                            <li><a href="#">子模块1</a></li>
+                                            <li><a href="#">子模块2</a></li>
                                             
                                         </ul>
                                     </li>
                         
                                     <!--Menu list item-->
                                     <li>
-                                        <a href="widgets.html">
+                                        <a href="#">
                                             <i class="demo-pli-gear"></i>
                                             <span class="menu-title">
                                                 Widgets

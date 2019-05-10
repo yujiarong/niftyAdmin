@@ -4,7 +4,7 @@
                 <!--Brand logo & name-->
                 <!--================================-->
                 <div class="navbar-header">
-                    <a href="index.html" class="navbar-brand">
+                    <a href="/" class="navbar-brand">
                         <img src="/nifty/img/logo.png" alt="Nifty Logo" class="brand-icon">
                         <div class="brand-title">
                             <span class="brand-text">Nifty</span>

@@ -14,14 +14,15 @@ use Illuminate\Foundation\Inspiring;
 */
 
 Artisan::command('inspire', function () {
-$collection = collect([1, 2, 3, 4]);
-
-$filtered = $collection->reject(function ($value, $key) {
-    return $value > 2;
-});
-
-print_r( $filtered->all() );
-
-
+	BearyChat::client('default')->send('foo');
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
+
+/**
+ * @param  [type]
+ * @param  [type]
+ * @return [type]
+ */
+function aa($a,$ba){
+
+}

@@ -48,7 +48,7 @@
 <!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
 
 <body>
-    <div id="container" class="cls-container">
+    <div id="container" class="cls-container" style='background: url({{ asset('images/background.gif') }}) no-repeat;background-size: cover;'>
         
         <!-- BACKGROUND IMAGE -->
         <!--===================================================-->

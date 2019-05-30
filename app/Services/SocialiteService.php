@@ -8,35 +8,27 @@ class SocialiteService extends BaseService
 {
 	
 	public function redirect($site){
-		$config = [
-		    'facebook' => [
-		        'client_id'     => '288617088649236',
-		        'client_secret' => '8e22ecd95b622919434c10210189f85f',
-		        'redirect'      => 'http://localhost:8000/socialite/callback/facebook',
-		    ],
-		];
+
+		$config = $this->getConfig($site);
 
 		$socialite = new SocialiteManager($config);
 
-		$response = $socialite->driver('facebook')->redirect();
-		dd($response->send());
-		echo $response;// or $response->send();		
+		$response = $socialite->driver($site)->redirect();
+		$response->send();
 	}
 
 	public function callback($site){
 
-		$config = [
-		    'facebook' => [
-		        'client_id'     => '288617088649236',
-		        'client_secret' => '8e22ecd95b622919434c10210189f85f',
-		        'redirect'      => 'http://localhost:8000/socialite/callback/facebook',
-		    ],
-		];
+		$config = $this->getConfig($site);
 
 		$socialite = new SocialiteManager($config);
 
-		$user = $socialite->driver('facebook')->user();
+		$user = $socialite->driver($site)->user();
 
 		dd($user);
+	}
+
+	public function getConfig($site){
+		return config('socialite');
 	}
 }

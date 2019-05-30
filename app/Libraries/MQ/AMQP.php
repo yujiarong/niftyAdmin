@@ -110,7 +110,6 @@ class AMQP{
      * @param string $qname 队列名称
      * @param string $ename 交换器名称
      * @param string $routing_key 路由键 注:在fanout的交换器中路由键会被忽略
-     * @author xzy
      */
     public function bind($qname, $ename, $routing_key = ''){
         $this->channel->queue_bind($qname, $ename, $routing_key);

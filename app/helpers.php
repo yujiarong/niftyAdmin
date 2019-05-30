@@ -34,4 +34,18 @@ function getNow($format = "Y-m-d H:i:s"){
     return date($format);
 }
 
+/**
+ * [xmlencode xml实体转义]
+ * @param  [type] $tag 
+ * @return [type] $tag    
+ */
+function xmlencode($tag){
+    $tag = str_replace("&", "&amp;", $tag);
+    $tag = str_replace("<", "&lt;", $tag);
+    $tag = str_replace(">", "&gt;", $tag);
+    $tag = str_replace("'", "&apos;", $tag);
+    $tag = str_replace("\"", '&quot;', $tag);
+    return $tag;
+}
+
 ?>

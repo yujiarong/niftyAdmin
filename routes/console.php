@@ -13,16 +13,3 @@ use Illuminate\Foundation\Inspiring;
 |
 */
 
-Artisan::command('inspire', function () {
-	BearyChat::client('default')->send('foo');
-    $this->comment(Inspiring::quote());
-})->describe('Display an inspiring quote');
-
-/**
- * @param  [type]
- * @param  [type]
- * @return [type]
- */
-function aa($a,$ba){
-
-}

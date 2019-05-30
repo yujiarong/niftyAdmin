@@ -15,8 +15,13 @@ Route::get('/', function () {
     return redirect('/dashboard');
 });
 
-Route::get('avatar/{name}', function ($name) {
-    app('avatar')->getImage($name);
+Route::group([
+    'prefix'     => 'socialite',
+    'as'         => 'socialite.',
+    'namespace'  => 'Auth',
+], function () {
+	Route::get('redirect/{site}', 'SocialiteController@redirect')->name('redirect');
+	Route::get('callback/{site}', 'SocialiteController@callback')->name('callback');
 });
 
 Auth::routes();

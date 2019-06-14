@@ -101,7 +101,7 @@ $(document).on('nifty.ready', function() {
             {data: 'id', name: 'id'},
             {data: 'name', name: 'name'},
             {data: 'email', name: 'email'},
-            {data: 'roles', name: 'roles'},
+            {data: 'roles', name: 'roles'，sortable: false,searchable: false},
             {data: 'created_at', name: 'created_at'},
             {
                 name: 'actions',

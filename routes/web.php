@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return redirect('/dashboard');
-});
 
 Route::group([
     'prefix'     => 'socialite',
@@ -26,6 +23,7 @@ Route::group([
 
 Auth::routes();
 Route::group(['middleware' => 'auth' ], function() {
+	Route::get('/', 'HomeController@index')->name('/');
 	Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 	includeRouteFiles(__DIR__.DIRECTORY_SEPARATOR.'Backend'.DIRECTORY_SEPARATOR);
 });

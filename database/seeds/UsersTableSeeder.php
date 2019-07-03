@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Address;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -13,10 +12,12 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        User::truncate();
         User::create([
-                                  'email' => 'admin@qq.com',
-                                  'password' => bcrypt('admin'),
-                                  'name'     => 'admin',
-                              ]);
+                        'email' => 'admin@qq.com',
+                        'password' => bcrypt('admin'),
+                        'name'     => 'admin',
+                      ]);
+        factory(User::class, 50)->create();
     }
 }

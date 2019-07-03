@@ -67,11 +67,11 @@
                     <form action="{{ route('login') }}" method="post">
                         {{ csrf_field() }}
                         <div class="form-group has-feedback">
-                            <input type="text" class="form-control"  name="email" placeholder="Email" autofocus value="xiaoyan@sailvan.com">
+                            <input type="text" class="form-control"  name="email" placeholder="Email" autofocus value="admin@qq.com">
                             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                         </div>
                         <div class="form-group has-feedback">
-                            <input type="password" class="form-control"  name="password" placeholder="Password" value="123456">
+                            <input type="password" class="form-control"  name="password" placeholder="Password" value="admin">
                             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                         </div>
                         <div class="checkbox pad-btm text-left">

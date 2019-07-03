@@ -19,8 +19,8 @@ class PermissionController extends Controller
 
     public function tableGet(){
         $permissionClass = app(PermissionContract::class);
-        $userList  = $permissionClass->select('*');
-        return DataTables::of($userList)
+        $list  = $permissionClass->select('*');
+        return DataTables::of($list)
                 ->make(true);        
     }
 

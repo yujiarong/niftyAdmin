@@ -19,8 +19,8 @@ class RoleController extends Controller
     }
 
     public function tableGet(){
-        $userList  = Role::select('*');
-        return DataTables::of($userList)
+        $list  = Role::select('*');
+        return DataTables::of($list)
                 ->make(true);        
     }
 

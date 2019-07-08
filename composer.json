@@ -6,16 +6,16 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
-        "fideloper/proxy": "~3.3",
+        "fideloper/proxy": "~4.0",
         "hieu-le/active": "^3.5",
-        "laravel/framework": "5.5.*",
-        "laravel/passport": "~4.0",
+        "laravel/framework": "5.8.*",
+        "laravel/passport": "~7.0",
         "laravel/tinker": "~1.0",
         "overtrue/socialite": "^2.0",
         "paragonie/random_compat": "2.*",
         "php-amqplib/php-amqplib": "2.6.1",
         "spatie/laravel-permission": "^2.28",
-        "yajra/laravel-datatables-oracle": "^8.13"
+        "yajra/laravel-datatables-oracle": ">8"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.2",

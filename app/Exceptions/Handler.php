@@ -5,6 +5,8 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Session\TokenMismatchException;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Auth\AuthenticationException;
 
 class Handler extends ExceptionHandler
 {
@@ -53,5 +55,21 @@ class Handler extends ExceptionHandler
             return response()->json(['code'=>401,'msg'=>'Token过期请刷新页面']);
         }
         return parent::render($request, $exception);
+    }
+
+    protected function invalidJson($request, ValidationException $exception)
+    {
+        return response()->json([
+            'code'    => 300,
+            'message' => $exception->getMessage(),
+            'errors'  => $exception->errors(),
+        ], $exception->status);
+    }
+
+    protected function unauthenticated($request, AuthenticationException $exception)
+    {
+        return $request->expectsJson()
+                    ? response()->json([ 'code'=> 300, 'message' => $exception->getMessage()], 401)
+                    : redirect()->guest(route('login'));
     }
 }
